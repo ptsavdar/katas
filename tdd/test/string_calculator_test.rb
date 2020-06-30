@@ -33,4 +33,8 @@ class StringCalculatorTest < Minitest::Test
   def test_comma_and_new_line_string
     assert_equal(16, @string_calculator.add('4,4\n4,2\n2'))
   end
+
+  def test_with_custom_delimiter
+    assert_equal(13, @string_calculator.add('//[;]\n4;2;5;2'))
+  end
 end
