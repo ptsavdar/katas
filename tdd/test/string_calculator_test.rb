@@ -29,4 +29,8 @@ class StringCalculatorTest < Minitest::Test
   def test_multiple_numbers_string
     assert_equal(53, @string_calculator.add('7,12,21,8,5'))
   end
+
+  def test_comma_and_new_line_string
+    assert_equal(16, @string_calculator.add('4,4\n4,2\n2'))
+  end
 end
