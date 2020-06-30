@@ -25,4 +25,8 @@ class StringCalculatorTest < Minitest::Test
   def test_another_two_numbers_string
     assert_equal(56, @string_calculator.add('4,52'))
   end
+
+  def test_multiple_numbers_string
+    assert_equal(53, @string_calculator.add('7,12,21,8,5'))
+  end
 end
