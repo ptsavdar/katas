@@ -37,4 +37,8 @@ class StringCalculatorTest < Minitest::Test
   def test_with_custom_delimiter
     assert_equal(13, @string_calculator.add('//[;]\n4;2;5;2'))
   end
+
+  def test_with_negative_numbers
+    assert_raises('negatives not allowed -1, -2, -33') { @string_calculator.add('//[;]\n4;-1;-2;5;-33') }
+  end
 end
