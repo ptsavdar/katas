@@ -41,4 +41,8 @@ class StringCalculatorTest < Minitest::Test
   def test_with_negative_numbers
     assert_raises('negatives not allowed -1, -2, -33') { @string_calculator.add('//[;]\n4;-1;-2;5;-33') }
   end
+
+  def test_with_numbers_bigger_than_1000
+    assert_equal(1013, @string_calculator.add('//[;]\n4;2;1001;5;2000;2;1000'))
+  end
 end

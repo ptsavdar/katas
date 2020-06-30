@@ -1,6 +1,6 @@
 class StringCalculator
   def add(str)
-    str.empty? ? 0 : split(str).map(&:to_i).then(&method(:valid?)).sum
+    str.empty? ? 0 : split(str).map(&:to_i).then(&method(:valid?)).then(&method(:up_to_1000)).sum
   end
 
   private
@@ -19,5 +19,9 @@ class StringCalculator
     raise "negatives not allowed #{negatives.join(', ')}" if negatives.any?
 
     numbers
+  end
+
+  def up_to_1000(numbers)
+    numbers.filter { |n| n <= 1000 }
   end
 end
