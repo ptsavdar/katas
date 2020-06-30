@@ -1,5 +1,5 @@
 class StringCalculator
-  def add(_)
-    0
+  def add(str)
+    str.empty? ? 0 : str.to_i
   end
 end
