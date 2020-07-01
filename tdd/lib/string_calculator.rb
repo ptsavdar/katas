@@ -2,7 +2,7 @@ class StringCalculator
   def add(str)
     return 0 if str.empty?
 
-    split(str).map(&:to_i).then(&method(:valid?)).then(&method(:up_to_1000)).sum
+    numbers(str).then(&method(:raise_negatives)).then(&method(:remove_bigger_than_1000)).sum
   end
 
   private
@@ -16,20 +16,24 @@ class StringCalculator
 
   MULTIPLE_DELIMITER_REGEX = %r{\[([^\]]+)\]+}
 
+  def numbers(str)
+    split(str).map(&:to_i)
+  end
+
   def split(str)
     delimiter = delimiter(str)
 
     str.gsub(CUSTOM_DELIMITER_REGEX, '').split(delimiter)
   end
 
-  def valid?(numbers)
+  def raise_negatives(numbers)
     negatives = numbers.filter(&:negative?)
     raise "negatives not allowed #{negatives.join(', ')}" if negatives.any?
 
     numbers
   end
 
-  def up_to_1000(numbers)
+  def remove_bigger_than_1000(numbers)
     numbers.filter { |n| n <= 1000 }
   end
 
