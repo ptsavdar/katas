@@ -43,10 +43,14 @@ class StringCalculatorTest < Minitest::Test
   end
 
   def test_with_numbers_bigger_than_1000
-    assert_equal(1013, @string_calculator.add('//[;]\n4;2;1001;5;2000;2;1000'))
+    assert_equal(1013, @string_calculator.add('//;\n4;2;1001;5;2000;2;1000'))
   end
 
   def test_with_custom_multi_character_delimiter
     assert_equal(13, @string_calculator.add('//[;*;]\n4;*;2;*;5;*;2'))
+  end
+
+  def test_with_multiple_custom_multi_character_delimiters
+    assert_equal(13, @string_calculator.add('//[;*;][***][;;;]\n4;*;2***5;;;2'))
   end
 end
