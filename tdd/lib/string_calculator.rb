@@ -6,7 +6,7 @@ class StringCalculator
   private
 
   DEFAULT_DELIMITER_REGEX = %r{[,\\n]}
-  CUSTOM_DELIMITER_REGEX = %r{\A//\[(.)\]\\n}
+  CUSTOM_DELIMITER_REGEX = %r{\A//\[(.+)\]\\n}
 
   def split(str)
     delimiter = str[CUSTOM_DELIMITER_REGEX, 1] || DEFAULT_DELIMITER_REGEX
