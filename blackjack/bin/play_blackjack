@@ -1,0 +1,9 @@
+#!/usr/bin/env ruby
+
+require_relative '../lib/blackjack'
+
+game = Blackjack::Game.new
+
+while true
+  game.play
+end
